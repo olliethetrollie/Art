@@ -19,7 +19,7 @@ public class ArtFrame extends JFrame
 	
 	public void setupFrame()
 	{
-		this.setTitle("Art time baby :]");
+		this.setTitle("My Java Artwork");
 		this.setSize(1200, 900);
 		this.setResizable(false);
 		
