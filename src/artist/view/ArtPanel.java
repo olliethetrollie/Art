@@ -45,11 +45,13 @@ public class ArtPanel extends JPanel
 	{
 		canvas.addMouseMotionListener(new MouseMotionListener()
 		{
+				@Override
 				public void mouseDragged(MouseEvent drag)
 				{
 					
 				}
 				
+				@Override
 				public void mouseMoved(MouseEvent move)
 				{
 					int x = move.getX();
@@ -63,26 +65,31 @@ public class ArtPanel extends JPanel
 		
 		canvas.addMouseListener(new MouseListener()
 				{
+					@Override
 					public void mouseClicked(MouseEvent click)
 					{
 						
 					}
 					
+					@Override
 					public void mousePressed(MouseEvent press)
 					{
 						
 					}
 					
+					@Override
 					public void mouseReleased(MouseEvent release)
 					{
 						canvas.resetPoint();
 					}
 					
+					@Override
 					public void mouseEntered(MouseEvent enter)
 					{
 						
 					}
 					
+					@Override
 					public void mouseExited(MouseEvent exit)
 					{
 						canvas.resetPoint();
