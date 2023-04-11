@@ -1,6 +1,8 @@
 package artist.view;
 
 import java.awt.Color;
+import java.awt.event.*;
+
 
 import javax.swing.*;
 import artist.controller.Controller;
@@ -40,7 +42,23 @@ public class ArtPanel extends JPanel
 	
 	public void setupListeners()
 	{
-		
+		canvas.addMouseMotionListener(new MouseMotionListener()
+		{
+				public void mouseDragged(MouseEvent drag)
+				{
+					
+				}
+				
+				public void mouseMoved(MouseEvent move)
+				{
+					int x = move.getX();
+					int y = move.getY();
+					
+					String message = "X: " + x + " Y: " + y;
+					demoLabel.setText(message);
+				}
+				
+		});
 	}
 	
 	public void setupLayout()
