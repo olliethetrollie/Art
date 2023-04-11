@@ -48,7 +48,9 @@ public class ArtPanel extends JPanel
 				@Override
 				public void mouseDragged(MouseEvent drag)
 				{
-					
+					int x = drag.getX();
+					int y = drag.getY();
+					canvas.drawLine(x, y, 15);
 				}
 				
 				@Override
@@ -68,7 +70,9 @@ public class ArtPanel extends JPanel
 					@Override
 					public void mouseClicked(MouseEvent click)
 					{
-						
+						int x = click.getX();
+						int y = click.getY();
+						canvas.drawDot(x, y, 20);
 					}
 					
 					@Override
