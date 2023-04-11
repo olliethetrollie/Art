@@ -14,7 +14,7 @@ public class Controller
 	
 	public void start()
 	{
-		JOptionPane.showMessageDialog(frame, "ITS ART TIME!!!!");
+//		JOptionPane.showMessageDialog(frame, "ITS ART TIME!!!!");
 	}
 	
 	public void handleError()
