@@ -8,6 +8,7 @@ public class ArtFrame extends JFrame
 	private Controller app;
 	private ArtPanel panel;
 	
+	
 	public ArtFrame(Controller app)
 	{
 		super();
