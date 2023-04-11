@@ -10,8 +10,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.*;
 
-public class CanvasPanel 
+public class CanvasPanel extends JPanel
 {
 	private Controller app;
 	private Color currentColor;
@@ -22,16 +23,26 @@ public class CanvasPanel
 	
 	public CanvasPanel(Controller app)
 	{
+		super();
 		
+		this.app = app;
+		this.currentCanvas = new BufferedImage(700, 700, BufferedImage.TYPE_INT_ARGB);
+		this.stamp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+		
+		setupPanel();
+		resetPoint();
 	}
 	
 	public void resetPoint()
 	{
-		
+		previousX = Integer.MIN_VALUE;
+		previousY = Integer.MIN_VALUE;
 	}
 	
-	public void setupPanel()
+	private void setupPanel()
 	{
-		
+		this.setPreferredSize(new Dimension(700, 700));
+		this.setBackground(Color.MAGENTA);
+		this.currentColor = Color.green;
 	}
 }
