@@ -33,7 +33,7 @@ public class ArtPanel extends JPanel
 	public void setupPanel()
 	{
 		this.setLayout(layout);
-		this.setBackground(Color.CYAN);
+		this.setBackground(Color.DARK_GRAY);
 		this.add(demoLabel);
 		this.add(canvas);
 	}

@@ -42,7 +42,7 @@ public class CanvasPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setPreferredSize(new Dimension(700, 700));
-		this.setBackground(Color.lightGray);
+		this.setBackground(Color.WHITE);
 		this.currentColor = Color.CYAN;
 	}
 }
