@@ -39,6 +39,16 @@ public class CanvasPanel extends JPanel
 		previousY = Integer.MIN_VALUE;
 	}
 	
+	public void drawDot(int currentX, int currentY, int width)
+	{
+		Graphics2D currentGraphics = currentCanvas.createGraphics();
+		
+		currentGraphics.setColor(currentColor);
+		currentGraphics.setStroke(new BasicStroke(width));
+		currentGraphics.drawOval(currentX, currentY, width, width);
+		repaint();
+	}
+	
 	private void setupPanel()
 	{
 		this.setPreferredSize(new Dimension(700, 700));
