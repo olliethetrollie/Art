@@ -3,11 +3,11 @@ package artist.controller;
 import javax.swing.JOptionPane;
 import artist.view.ArtFrame;
 
-public class ArtController 
+public class Controller 
 {
 	private ArtFrame frame;
 	
-	public ArtController()
+	public Controller()
 	{
 		this.frame = new ArtFrame(this);
 	}

@@ -1,17 +1,17 @@
 package artist.view;
 
 import javax.swing.*;
-import artist.controller.ArtController;
+import artist.controller.Controller;
 
 public class ArtPanel extends JPanel
 {
 	
-	private ArtController controller;
+	private Controller controller;
 	private SpringLayout layout;
 	private JPanel buttonPanel;
 	private JButton saveButton;
 	
-	public ArtPanel(ArtController app)
+	public ArtPanel(Controller app)
 	{
 		super();
 		this.controller = controller;

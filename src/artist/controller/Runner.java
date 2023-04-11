@@ -1,12 +1,12 @@
 package artist.controller;
 
-import artist.controller.ArtController;
+import artist.controller.Controller;
 
 public class Runner 
 {
 	public static void main(String [] args)
 	{
-		ArtController app = new ArtController();
+		Controller app = new Controller();
 		app.start();
 	}
 }

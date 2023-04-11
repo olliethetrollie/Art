@@ -1,14 +1,14 @@
 package artist.view;
 
 import javax.swing.*;
-import artist.controller.ArtController;
+import artist.controller.Controller;
 
 public class ArtFrame extends JFrame
 {
-	private ArtController app;
+	private Controller app;
 	private ArtPanel panel;
 	
-	public ArtFrame(ArtController app)
+	public ArtFrame(Controller app)
 	{
 		super();
 		this.app = app;
