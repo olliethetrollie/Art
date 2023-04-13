@@ -77,13 +77,15 @@ public class ArtPanel extends JPanel
 					{
 						int x = click.getX();
 						int y = click.getY();
-						canvas.drawDot(x, y, 20);
+						canvas.drawDot(x, y, 10);
 					}
 					
 					@Override
 					public void mousePressed(MouseEvent press)
 					{
-						
+						int x = press.getX();
+						int y = press.getY();
+						canvas.drawHeart(x,y);
 					}
 					
 					@Override

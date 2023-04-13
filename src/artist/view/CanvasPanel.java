@@ -102,11 +102,20 @@ public class CanvasPanel extends JPanel
 		return triangle;
 	}
 	
-	private Polygon heart()
+	public void drawHeart(int currentX, int currentY)
+	{
+		Graphics2D drawingGraphics = currentCanvas.createGraphics();
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(currentColor);
+		drawingGraphics.fill(heart(currentX, currentY));
+	}
+	
+	private Polygon heart(int currentX, int currentY)
 	{
 	
-		int x = 300;
-		int y = 300;
+		int x = currentX;
+		int y = currentY;
 		
 		int [] xPoints = {x,x+10,x+30,x+40,x,x-40,x-30,x-10};
 		int [] yPoints = {y,y-20,y-20,y,y+30,y,y-20,y-20};
@@ -118,19 +127,19 @@ public class CanvasPanel extends JPanel
 	
 	private void updateImage()
 	{
-		Graphics2D drawingGraphics = currentCanvas.createGraphics();
-		
-		drawingGraphics.setStroke(new BasicStroke(10));
-		drawingGraphics.setColor(Color.CYAN);
-		drawingGraphics.fill(square());
-		
-		drawingGraphics.setStroke(new BasicStroke(10));
-		drawingGraphics.setColor(Color.CYAN);
-		drawingGraphics.fill(triangle());
-		
-		drawingGraphics.setStroke(new BasicStroke(10));
-		drawingGraphics.setColor(Color.CYAN);
-		drawingGraphics.fill(heart());
+//		Graphics2D drawingGraphics = currentCanvas.createGraphics();
+//		
+//		drawingGraphics.setStroke(new BasicStroke(10));
+//		drawingGraphics.setColor(Color.CYAN);
+//		drawingGraphics.fill(square());
+//		
+//		drawingGraphics.setStroke(new BasicStroke(10));
+//		drawingGraphics.setColor(Color.CYAN);
+//		drawingGraphics.fill(triangle());
+//		
+//		drawingGraphics.setStroke(new BasicStroke(10));
+//		drawingGraphics.setColor(Color.CYAN);
+//		drawingGraphics.fill(heart());
 	}
 	
 	private void setupPanel()
