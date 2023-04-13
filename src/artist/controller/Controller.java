@@ -17,8 +17,8 @@ public class Controller
 //		JOptionPane.showMessageDialog(frame, "ITS ART TIME!!!!");
 	}
 	
-	public void handleError()
+	public void handleError(Exception error)
 	{
-//		JOptionPane.showMessageDialog(frame, error.getMessage(), "Java art error :(", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(frame, error.getMessage(), "Java art error :(", JOptionPane.ERROR_MESSAGE);
 	}
 }
