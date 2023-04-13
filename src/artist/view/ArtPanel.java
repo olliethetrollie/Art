@@ -14,6 +14,7 @@ public class ArtPanel extends JPanel
 	private SpringLayout layout;
 	private JPanel buttonPanel;
 	private JButton saveButton;
+	private JButton loadButton;
 	private JLabel demoLabel;
 	private CanvasPanel canvas;
 	
@@ -23,7 +24,8 @@ public class ArtPanel extends JPanel
 		this.app = app;
 		this.layout = new SpringLayout();
 		this.buttonPanel = new JPanel();
-		this.saveButton = new JButton();
+		this.saveButton = new JButton("Save");
+		this.loadButton = new JButton("Load");
 		this.demoLabel = new JLabel("");
 		this.canvas = new CanvasPanel(app);
 		
@@ -36,6 +38,9 @@ public class ArtPanel extends JPanel
 	{
 		this.setLayout(layout);
 		this.setBackground(Color.DARK_GRAY);
+		this.add(buttonPanel);
+		buttonPanel.add(saveButton);
+		buttonPanel.add(loadButton);
 		this.add(demoLabel);
 		this.add(canvas);
 		demoLabel.setBackground(Color.WHITE);
@@ -103,6 +108,8 @@ public class ArtPanel extends JPanel
 				
 				
 				);
+		saveButton.addActionListener(click -> canvas.saveImage());
+		loadButton.addActionListener(click -> canvas.loadImage());
 	}
 	
 	public void setupLayout()
