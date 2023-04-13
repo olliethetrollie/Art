@@ -78,6 +78,27 @@ public class CanvasPanel extends JPanel
 		this.currentColor = Color.CYAN;
 	}
 	
+	public void saveImage()
+	{
+		try
+		{
+			JFileChooser saveDialog = new JFileChooser();
+			saveDialog.showSaveDialog(this);
+			String savePath = saveDialog.getSelectedFile().getPath();
+			
+			if (!savePath.endsWith(".png"))
+			{
+				savePath += ".png";
+			}
+			
+			ImageIO.write(currentCanvas,  "PNG", new File(savePath));
+		}
+		catch (IOException | NullPointerException error)
+		{
+			app.handleError(error);
+		}
+	}
+	
 	@Override
 	protected void paintComponent(Graphics graphics)
 	{
