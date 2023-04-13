@@ -78,7 +78,7 @@ public class CanvasPanel extends JPanel
 		
 		int x = 200;
 		int y = 200;
-		int c = 300;
+		int c = 30;
 	
 		int [] xPoints = {x,x+c,x+c,x};
 		int [] yPoints = {y,y,y+c,y+c};
@@ -91,8 +91,15 @@ public class CanvasPanel extends JPanel
 	
 	private Polygon triangle()
 	{
+		int x = 400;
+		int y = 400;
+		Polygon triangle = new Polygon();
 		
-		return null;
+		triangle.addPoint(x, y);
+		triangle.addPoint(x+30,y+60);
+		triangle.addPoint(x-30, y+60);
+		
+		return triangle;
 	}
 	
 	private void updateImage()
@@ -102,6 +109,10 @@ public class CanvasPanel extends JPanel
 		drawingGraphics.setStroke(new BasicStroke(10));
 		drawingGraphics.setColor(Color.CYAN);
 		drawingGraphics.fill(square());
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(Color.CYAN);
+		drawingGraphics.fill(triangle());
 	}
 	
 	private void setupPanel()
