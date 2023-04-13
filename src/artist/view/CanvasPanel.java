@@ -3,6 +3,7 @@ package artist.view;
 import artist.controller.Controller;
 
 import java.awt.*;
+import java.awt.Polygon.*;
 import java.awt.image.BufferedImage;
 
 import java.io.File;
@@ -31,6 +32,7 @@ public class CanvasPanel extends JPanel
 		
 		setupPanel();
 		resetPoint();
+		updateImage();
 	}
 	
 	public void resetPoint()
@@ -71,8 +73,13 @@ public class CanvasPanel extends JPanel
 		repaint();
 	}
 	
-	private Polygon square()
+	private Polygon square(int currentX, int currentY) // extends Object implements Shape, Serizable
 	{
+		int x = currentX;
+		int y = currentY;
+		
+		
+		
 		return null;
 		
 	}
@@ -83,7 +90,7 @@ public class CanvasPanel extends JPanel
 		
 		drawingGraphics.setStroke(new BasicStroke(10));
 		drawingGraphics.setColor(Color.CYAN);
-		drawingGraphics.fill(square());
+//		drawingGraphics.fill(square());
 	}
 	
 	private void setupPanel()
