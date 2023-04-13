@@ -99,6 +99,32 @@ public class CanvasPanel extends JPanel
 		}
 	}
 	
+	public void loadImage()
+	{
+		try
+		{
+			JFileChooser imageChooser = new JFileChooser();
+			imageChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+			FileFilter imageFilter = new FileNameExtensionFilter("Image Files Only~", ImageIO.getReaderFileSuffixes());
+			imageChooser.setFileFilter(imageFilter);
+			
+			if (imageChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+			{
+				File resultingFile = imageChooser.getSelectedFile();
+				BufferedImage updatedCanvas = ImageIO.read(resultingFile);
+				currentCanvas = updatedCanvas;
+				this.setPreferredSize(new Dimension(currentCanvas.getWidth(), currentCanvas.getHeight()));
+			}
+			
+			repaint();
+			
+		}
+		catch (IOException error)
+		{
+			app.handleError(error);
+		}
+	}
+	
 	@Override
 	protected void paintComponent(Graphics graphics)
 	{
