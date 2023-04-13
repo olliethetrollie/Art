@@ -15,6 +15,8 @@ public class ArtPanel extends JPanel
 	private JPanel buttonPanel;
 	private JButton saveButton;
 	private JButton loadButton;
+	private JButton heartButton;
+	private JButton squareButton;
 	private JLabel demoLabel;
 	private CanvasPanel canvas;
 	
@@ -26,6 +28,8 @@ public class ArtPanel extends JPanel
 		this.buttonPanel = new JPanel();
 		this.saveButton = new JButton("Save");
 		this.loadButton = new JButton("Load");
+		this.heartButton = new JButton("Heart Stamp");
+		this.squareButton = new JButton("Square Stamp");
 		this.demoLabel = new JLabel("");
 		this.canvas = new CanvasPanel(app);
 		
@@ -41,6 +45,8 @@ public class ArtPanel extends JPanel
 		this.add(buttonPanel);
 		buttonPanel.add(saveButton);
 		buttonPanel.add(loadButton);
+		buttonPanel.add(squareButton);
+		buttonPanel.add(heartButton);
 		this.add(demoLabel);
 		this.add(canvas);
 		demoLabel.setBackground(Color.WHITE);
@@ -70,6 +76,8 @@ public class ArtPanel extends JPanel
 				
 		});
 		
+		String currentStamp = "";
+		
 		canvas.addMouseListener(new MouseListener()
 				{
 					@Override
@@ -77,15 +85,13 @@ public class ArtPanel extends JPanel
 					{
 						int x = click.getX();
 						int y = click.getY();
-						canvas.drawDot(x, y, 10);
+						stampCheck(x,y, currentStamp);
 					}
 					
 					@Override
 					public void mousePressed(MouseEvent press)
 					{
-						int x = press.getX();
-						int y = press.getY();
-						canvas.drawHeart(x,y);
+						
 					}
 					
 					@Override
@@ -112,9 +118,15 @@ public class ArtPanel extends JPanel
 				);
 		saveButton.addActionListener(click -> canvas.saveImage());
 		loadButton.addActionListener(click -> canvas.loadImage());
+		heartButton.addActionListener(click -> currentStamp = "heartStamp");
 	}
 	
-	public void setupLayout()
+	public void checkStamp(int currentX, int currentY)
+	{
+		
+	}
+	
+ 	public void setupLayout()
 	{
 		layout.putConstraint(SpringLayout.NORTH, canvas, 34, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.EAST, canvas, -50, SpringLayout.EAST, this);

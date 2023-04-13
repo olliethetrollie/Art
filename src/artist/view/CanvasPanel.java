@@ -28,7 +28,7 @@ public class CanvasPanel extends JPanel
 		
 		this.app = app;
 		this.currentCanvas = new BufferedImage(700, 700, BufferedImage.TYPE_INT_ARGB);
-		this.stamp = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+		this.stamp = new BufferedImage(700, 700, BufferedImage.TYPE_INT_ARGB);
 		
 		setupPanel();
 		resetPoint();
