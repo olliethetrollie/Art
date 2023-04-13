@@ -102,6 +102,20 @@ public class CanvasPanel extends JPanel
 		return triangle;
 	}
 	
+	private Polygon heart()
+	{
+	
+		int x = 300;
+		int y = 300;
+		
+		int [] xPoints = {x,x+10,x+30,x+40,x,x-40,x-30,x-10};
+		int [] yPoints = {y,y-20,y-20,y,y+30,y,y-20,y-20};
+		
+		Polygon heart = new Polygon(xPoints, yPoints, xPoints.length);
+		
+		return heart;
+	}
+	
 	private void updateImage()
 	{
 		Graphics2D drawingGraphics = currentCanvas.createGraphics();
@@ -113,6 +127,10 @@ public class CanvasPanel extends JPanel
 		drawingGraphics.setStroke(new BasicStroke(10));
 		drawingGraphics.setColor(Color.CYAN);
 		drawingGraphics.fill(triangle());
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(Color.CYAN);
+		drawingGraphics.fill(heart());
 	}
 	
 	private void setupPanel()
