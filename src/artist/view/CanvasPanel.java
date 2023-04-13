@@ -71,11 +71,26 @@ public class CanvasPanel extends JPanel
 		repaint();
 	}
 	
+	private Polygon square()
+	{
+		return null;
+		
+	}
+	
+	private void updateImage()
+	{
+		Graphics2D drawingGraphics = currentCanvas.createGraphics();
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(Color.CYAN);
+		drawingGraphics.fill(square());
+	}
+	
 	private void setupPanel()
 	{
 		this.setPreferredSize(new Dimension(700, 700));
 		this.setBackground(Color.WHITE);
-		this.currentColor = Color.CYAN;
+		this.currentColor = Color.BLACK;
 	}
 	
 	public void saveImage()
