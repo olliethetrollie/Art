@@ -96,10 +96,8 @@ public class CanvasPanel extends JPanel
 		repaint();
 	}
 	
-	private Polygon triangle()
+	private Polygon triangle(int x, int y)
 	{
-		int x = 400;
-		int y = 400;
 		Polygon triangle = new Polygon();
 		
 		triangle.addPoint(x, y);
@@ -107,6 +105,16 @@ public class CanvasPanel extends JPanel
 		triangle.addPoint(x-30, y+60);
 		
 		return triangle;
+	}
+	
+	public void drawTriangle(int currentX, int currentY)
+	{
+		Graphics2D drawingGraphics = currentCanvas.createGraphics();
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(currentColor);
+		drawingGraphics.fill(triangle(currentX, currentY));
+		repaint();
 	}
 	
 	public void drawHeart(int currentX, int currentY)

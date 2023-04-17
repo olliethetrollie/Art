@@ -18,6 +18,8 @@ public class ArtPanel extends JPanel
 	private JButton loadButton;
 	private JButton heartButton;
 	private JButton squareButton;
+	private JButton triangleButton;
+	private JButton dotButton;
 	private JLabel demoLabel;
 	private CanvasPanel canvas;
 	private String currentStamp;
@@ -33,6 +35,8 @@ public class ArtPanel extends JPanel
 		this.loadButton = new JButton("Load");
 		this.heartButton = new JButton("Heart Stamp");
 		this.squareButton = new JButton("Square Stamp");
+		this.dotButton = new JButton("Circle Stamp");
+		this.triangleButton = new JButton("Triangle Stamp");
 		this.demoLabel = new JLabel("");
 		this.canvas = new CanvasPanel(app);
 		this.currentStamp = new String("");
@@ -52,6 +56,8 @@ public class ArtPanel extends JPanel
 		buttonPanel.add(loadButton);
 		stampPanel.add(squareButton);
 		stampPanel.add(heartButton);
+		stampPanel.add(dotButton);
+		stampPanel.add(triangleButton);
 		this.add(demoLabel);
 		this.add(canvas);
 		demoLabel.setBackground(Color.WHITE);
@@ -125,6 +131,8 @@ public class ArtPanel extends JPanel
 		loadButton.addActionListener(click -> canvas.loadImage());
 		heartButton.addActionListener(click -> currentStamp = "heart");
 		squareButton.addActionListener(click -> currentStamp = "square");
+		dotButton.addActionListener(click -> currentStamp = "dot");
+		triangleButton.addActionListener(click -> currentStamp = "triangle");
 	}
 	
 
@@ -138,6 +146,14 @@ public class ArtPanel extends JPanel
 		{
 			canvas.drawSquare(currentX,currentY);
 		}
+		else if (stamp.equals("triangle"))
+		{
+			canvas.drawTriangle(currentX,currentY);
+		}
+		else
+		{
+			canvas.drawDot(currentX,currentY,20);
+		}
 	}
 	
  	public void setupLayout()
@@ -148,5 +164,9 @@ public class ArtPanel extends JPanel
 		layout.putConstraint(SpringLayout.WEST, canvas, -750, SpringLayout.EAST, this);
 		
 		layout.putConstraint(SpringLayout.NORTH, stampPanel, 100, SpringLayout.NORTH, buttonPanel);
+		layout.putConstraint(SpringLayout.EAST, stampPanel, -20, SpringLayout.WEST, canvas);
+		layout.putConstraint(SpringLayout.WEST, stampPanel, 20, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.SOUTH, stampPanel, 100, SpringLayout.NORTH, stampPanel);
+		
 	}
 }
