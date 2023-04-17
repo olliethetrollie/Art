@@ -13,12 +13,14 @@ public class ArtPanel extends JPanel
 	private Controller app;
 	private SpringLayout layout;
 	private JPanel buttonPanel;
+	private JPanel stampPanel;
 	private JButton saveButton;
 	private JButton loadButton;
 	private JButton heartButton;
 	private JButton squareButton;
 	private JLabel demoLabel;
 	private CanvasPanel canvas;
+	private String currentStamp;
 	
 	public ArtPanel(Controller app)
 	{
@@ -26,12 +28,14 @@ public class ArtPanel extends JPanel
 		this.app = app;
 		this.layout = new SpringLayout();
 		this.buttonPanel = new JPanel();
+		this.stampPanel = new JPanel();
 		this.saveButton = new JButton("Save");
 		this.loadButton = new JButton("Load");
 		this.heartButton = new JButton("Heart Stamp");
 		this.squareButton = new JButton("Square Stamp");
 		this.demoLabel = new JLabel("");
 		this.canvas = new CanvasPanel(app);
+		this.currentStamp = new String("");
 		
 		setupPanel();
 		setupListeners();
@@ -43,10 +47,11 @@ public class ArtPanel extends JPanel
 		this.setLayout(layout);
 		this.setBackground(Color.DARK_GRAY);
 		this.add(buttonPanel);
+		this.add(stampPanel);
 		buttonPanel.add(saveButton);
 		buttonPanel.add(loadButton);
-		buttonPanel.add(squareButton);
-		buttonPanel.add(heartButton);
+		stampPanel.add(squareButton);
+		stampPanel.add(heartButton);
 		this.add(demoLabel);
 		this.add(canvas);
 		demoLabel.setBackground(Color.WHITE);
@@ -76,7 +81,7 @@ public class ArtPanel extends JPanel
 				
 		});
 		
-		String currentStamp = "";
+		
 		
 		canvas.addMouseListener(new MouseListener()
 				{
@@ -85,7 +90,7 @@ public class ArtPanel extends JPanel
 					{
 						int x = click.getX();
 						int y = click.getY();
-						stampCheck(x,y, currentStamp);
+						checkStamp(currentStamp,x,y);
 					}
 					
 					@Override
@@ -118,12 +123,21 @@ public class ArtPanel extends JPanel
 				);
 		saveButton.addActionListener(click -> canvas.saveImage());
 		loadButton.addActionListener(click -> canvas.loadImage());
-		heartButton.addActionListener(click -> currentStamp = "heartStamp");
+		heartButton.addActionListener(click -> currentStamp = "heart");
+		squareButton.addActionListener(click -> currentStamp = "square");
 	}
 	
-	public void checkStamp(int currentX, int currentY)
+
+	public void checkStamp(String stamp, int currentX, int currentY)
 	{
-		
+		if (stamp.equals("heart"))
+		{
+			canvas.drawHeart(currentX,currentY);
+		}
+		else if (stamp.equals("square"))
+		{
+			canvas.drawSquare(currentX,currentY);
+		}
 	}
 	
  	public void setupLayout()
@@ -132,5 +146,7 @@ public class ArtPanel extends JPanel
 		layout.putConstraint(SpringLayout.EAST, canvas, -50, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, canvas, -34, SpringLayout.SOUTH, this);
 		layout.putConstraint(SpringLayout.WEST, canvas, -750, SpringLayout.EAST, this);
+		
+		layout.putConstraint(SpringLayout.NORTH, stampPanel, 100, SpringLayout.NORTH, buttonPanel);
 	}
 }

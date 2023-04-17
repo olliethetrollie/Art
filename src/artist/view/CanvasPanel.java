@@ -73,11 +73,8 @@ public class CanvasPanel extends JPanel
 		repaint();
 	}
 	
-	private Polygon square() // extends Object implements Shape, Serizable
+	private Polygon square(int x, int y) // extends Object implements Shape, Serizable
 	{
-		
-		int x = 200;
-		int y = 200;
 		int c = 30;
 	
 		int [] xPoints = {x,x+c,x+c,x};
@@ -87,6 +84,16 @@ public class CanvasPanel extends JPanel
 		
 		return square;
 		
+	}
+	
+	public void drawSquare(int currentX, int currentY)
+	{
+		Graphics2D drawingGraphics = currentCanvas.createGraphics();
+		
+		drawingGraphics.setStroke(new BasicStroke(10));
+		drawingGraphics.setColor(currentColor);
+		drawingGraphics.fill(square(currentX, currentY));
+		repaint();
 	}
 	
 	private Polygon triangle()
@@ -109,6 +116,7 @@ public class CanvasPanel extends JPanel
 		drawingGraphics.setStroke(new BasicStroke(10));
 		drawingGraphics.setColor(currentColor);
 		drawingGraphics.fill(heart(currentX, currentY));
+		repaint();
 	}
 	
 	private Polygon heart(int currentX, int currentY)
